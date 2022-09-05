@@ -9,7 +9,11 @@
 }
 body{
 
-  background:#282c34;
+  background:#ffffff;
+}
+#menu-appbar{
+  background:rgb(255, 0, 0);
+  color:#ffffff;
 }
 .App-header {
   background-color: #282c34;
