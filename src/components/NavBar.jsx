@@ -13,11 +13,12 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import logo from '../logo.svg';
+import logopng from '../logo.png';
 import '../App.css';
 import CustomizedBadges from './CartWidget.jsx'; //
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Productos', 'categoria', 'mejor elejidos'];
+const settings = ['perfil', 'cuenta', 'configuracion', 'salir'];
 
 const ResponsiveAppBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -40,15 +41,16 @@ const ResponsiveAppBar = () => {
 
     return (
         <AppBar position="static">
-            <Container maxWidth="xl">
-                <Toolbar disableGutters>
-                    <AdbIcon className="App-logo m-1" width="30px" height="30px" alt="Remy Sharp" src={logo} />
+            <Container maxWidth="xl" sx={{ backgroundColor: 'gold'}}>
+                <Toolbar disableGutters   >
+                    <img  width="50px" height="50px" alt="Remy Sharp" src={logopng} />
                     <Typography
                         variant="h6"
                         noWrap
                         component="a"
                         href="/"
                         sx={{
+                            marginLeft: 2,
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
                             fontFamily: 'roboto',
@@ -61,7 +63,7 @@ const ResponsiveAppBar = () => {
                         mercado libre
                     </Typography>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{  flexGrow: 1, color: 'black' , display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -100,7 +102,7 @@ const ResponsiveAppBar = () => {
                     </Box>
                     <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                     <Typography
-                        variant="h5"
+                        variant="h2"
                         noWrap
                         component="a"
                         href=""
@@ -122,7 +124,7 @@ const ResponsiveAppBar = () => {
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: 'black', display: 'block' }}
                             >
                                 {page}
                             </Button>
