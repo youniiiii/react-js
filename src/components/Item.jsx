@@ -1,5 +1,5 @@
 
-const Cardts = ({imagen,nombre, precio, description,id }) => {
+const Cardts = ({imagen,nombre, precio, codigo,id }) => {
   return (
       <div className="container flex" id={id}>
           <div className="image">
@@ -8,7 +8,7 @@ const Cardts = ({imagen,nombre, precio, description,id }) => {
           <div className="info">
           <h3>nombre:<br/>{nombre}</h3>
           <p>precio:{precio}</p>
-          <p>codigo:{description}</p>
+          <p>codigo:{codigo}</p>
           </div>
       </div >
   );
