@@ -52,7 +52,6 @@ const Contador = ({ initial, stock }) => {
       <button onClick={() => agregoAlCarrito()} style={{ color: "wheat", backgroundColor: "black", border: "none", borderRadius: 25 }}>
         <ShoppingCartCheckoutIcon />agregar al carrito
       </button>
-
     </div>
   );
 }
