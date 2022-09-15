@@ -41,3 +41,38 @@ botonera{
     transform: rotate(360deg);
   }
 }
+
+.flex{
+  display: flex;
+  
+}
+.container {
+  width: 50%;
+  display: flex;
+  overflow: hidden;
+  padding: 25px 15px;
+  border-bottom: #d8dee6 2px solid;
+  text-decoration: none;
+}
+
+.image {
+  margin: 0 20px 0 10px;
+}
+
+.info {
+  width: 80%;
+  height: 100px;
+}
+
+.info h3 {
+  font-weight: 600;
+  margin: 0;
+}
+
+.info h4 {
+  font-weight: 500;
+}
+
+.info p {
+  color: grey;
+}

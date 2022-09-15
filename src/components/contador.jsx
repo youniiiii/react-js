@@ -7,7 +7,7 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
 import { useEffect, useState } from 'react';
 
-const contador = ({ initial, stock }) => {
+const Contador = ({ initial, stock }) => {
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [contador, setContador] = useState(initial);
@@ -57,4 +57,4 @@ const contador = ({ initial, stock }) => {
   );
 }
 
-export default contador;
+export default Contador;
