@@ -6,8 +6,8 @@ const ItemList =({items})=> {
       {
       items.length>0
       ? items.map(item => <Item key={item.id} nombre={item.nombre} precio={item.precio} imagen={item.imagen} codigo={item.codigo}/>)
-      :<div class="loader">
-        <div class="scanner">
+      :<div className="loader">
+        <div className="scanner">
         <h1>Loading...</h1>
         </div>
        </div>
