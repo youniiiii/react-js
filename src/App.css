@@ -115,3 +115,10 @@ botonera{
    width: 100%;
   }
  }
+ .btn{
+  background-color: #f50000;
+  width: auto;
+  height: auto;
+color: #d8dee6;
+border-radius: 35px;
+}

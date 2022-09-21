@@ -5,19 +5,18 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import logo from '../logo.svg';
 import logopng from '../logo.png';
 import '../App.css';
 import CustomizedBadges from './CartWidget.jsx'; //
+import { Link } from 'react-router-dom'
 
-const pages = ['Productos', 'categoria', 'mejor elejidos'];
+const pages = ['electrodomesticos', 'ropa', 'maquinaria', 'tiendas']
 const settings = ['perfil', 'cuenta', 'configuracion', 'salir'];
 
 const ResponsiveAppBar = () => {
@@ -39,11 +38,12 @@ const ResponsiveAppBar = () => {
         setAnchorElUser(null);
     };
 
+
     return (
         <AppBar position="static">
-            <Container maxWidth="xl" sx={{ backgroundColor: 'gold'}}>
+            <Container maxWidth="xl" sx={{ backgroundColor: 'gold' }}>
                 <Toolbar disableGutters   >
-                    <img  width="50px" height="50px" alt="Remy Sharp" src={logopng} />
+                   <Link to="/"> <img width="50px" height="50px" alt="Remy Sharp" src={logopng} /></Link>
                     <Typography
                         variant="h6"
                         noWrap
@@ -62,80 +62,15 @@ const ResponsiveAppBar = () => {
                     >
                         mercado libre
                     </Typography>
-
-                    <Box sx={{  flexGrow: 1, color: 'black' , display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
-                        >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                    <Typography
-                        variant="h2"
-                        noWrap
-                        component="a"
-                        href=""
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        MenuItem
-                    </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'black', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
-                        ))}
-                        <CustomizedBadges />
-                    </Box>
-
-                    <Box sx={{ flexGrow: 0 }}>
+                    <Button><Link to="/category/1">{pages[0]}</Link></Button>
+                    <Button><Link to="/category/2">{pages[1]}</Link></Button>
+                    <Button><Link to="/category/3">{pages[2]}</Link></Button>
+                    <Button><Link to="/category/4">{pages[3]}</Link></Button>
+                    <Button><Link><CustomizedBadges /></Link></Button>
+                    <Box sx={{ flexGrow: 0 ,margin:"auto"}}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar className="App-logo m-1" width="30px" height="30px" alt="Remy Sharp" src={logo} />
+                                <Avatar className="App-logo m-1"  width="30px" height="30px" alt="Remy Sharp" src={logo} />
                             </IconButton>
                         </Tooltip>
                         <Menu
