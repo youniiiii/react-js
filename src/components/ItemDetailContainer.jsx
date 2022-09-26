@@ -22,8 +22,14 @@ alert('no hay datos');
 
   return (
     <>
-    <ItemDetail  id={data.id} nombre={data.nombre} precio={data.precio} imagen={data.imagen} codigo={data.codigo} stock={data.stock}/>
-    </>
+    {(data.nombre)
+    ?<ItemDetail item={data}/>
+    :<div className="loader">
+    <div className="scanner">
+    <h1>Loading...</h1>
+    </div>
+    </div>
+    }</>
   );
 }
 

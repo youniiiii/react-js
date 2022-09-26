@@ -3,7 +3,7 @@ import React from "react";
 import ResponsiveAppBar from "../components/NavBar";
 import ItemDetailContainer from "../components/ItemDetailContainer";
 import ItemListContainer from "../components/ItemListContainer";
-
+import Cart from "../components/Cart";
 function Home() {
 
     return (
@@ -17,6 +17,7 @@ function Home() {
                 <Route path='/category/:id' element={ <ItemListContainer/>}/>
                    
                 <Route path='/item/:id' element={<ItemDetailContainer/> }/>
+                <Route path='/cart' element={<Cart/>}/>
                     
           
             </Routes>

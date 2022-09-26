@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Cardts = ({ imagen, nombre, precio, codigo, id }) => {
   return (
-    <div className="container flex" >
+    <div className="container" >
       <div className="image">
         <img src={imagen} alt="" width="300px" height="400px" />
       </div>
