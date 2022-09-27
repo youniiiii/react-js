@@ -5,14 +5,12 @@ import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
-import { useEffect, useState } from 'react';
+import {useState} from 'react';
 
-const Contador = ({ initial, stock }) => {
-
+const Contador = ({ initial, stock ,onAdd }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [contador, setContador] = useState(initial);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [agregadoAlCarrito, setAgregoAlCarrito] = useState(true);
+
   const sumar = () => {
     if (contador < stock) {
       setContador(contador + 1)
@@ -23,19 +21,6 @@ const Contador = ({ initial, stock }) => {
       setContador(contador - 1)
     }
   }
-  const agregoAlCarrito = () => {
-    setAgregoAlCarrito(!agregadoAlCarrito)
-    setContador(contador);
-    console.log(`se agregro`);
-    alert(`se agregro al carrito: ${contador}`)
-  }
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  useEffect(() => {
-    console.log('se agregro params setContador');
-
-  }, [agregadoAlCarrito])
-
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
@@ -49,7 +34,7 @@ const Contador = ({ initial, stock }) => {
       </div>
       <strong spacing={10}>{contador}</strong>
       <br />
-      <button onClick={() => agregoAlCarrito()} style={{ color: "wheat", backgroundColor: "black", border: "none", borderRadius: 25 }}>
+      <button onClick={() => onAdd(contador)} style={{ color: "wheat", backgroundColor: "black", border: "none", borderRadius: 25 }}>
         <ShoppingCartCheckoutIcon />agregar al carrito
       </button>
     </div>

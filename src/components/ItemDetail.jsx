@@ -28,7 +28,7 @@ const ItemDetail = ({ item }) => {
                             (itemCount === 0)
 
                                 ?<ItemCount initial={itemCount} stock={item.stock} onAdd={onAdd} />
-                                :<Link to={"/cart"}><button>hola</button></Link>
+                                :<Link to={"/cart"}><button>guardado</button></Link>
                         }
                     </div>
                     </div>
