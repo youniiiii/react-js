@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import ItemCount from './ItemCount';
 import { Link } from 'react-router-dom'
-
+import { useContext } from 'react';
+import CartContext from './CartContext'
 const ItemDetail = ({ item }) => {
-
+    const ctx = useContext(CartContext);
+  
     const [itemCount, setItemCount] = useState(0);
 
     const onAdd = (qty) => {
         alert('seleccion ' + qty + "items");
         setItemCount(qty);
+        // eslint-disable-next-line no-undef
+        ctx.addItem(item,qty);
     }
 
     return (
