@@ -6,29 +6,25 @@ import "./NavBar.css"
 const categories = [
     {
         id:1,
-        path:"/category/pastas",
-        name:"Pastas"
+        path:"/category/electrodomesticos",
+        name:"electrodomesticos",
     },
     {
         id:2,
-        path:"/category/pizzas",
-        name:"Pizzas"
+        path:"/category/ropa",
+        name:"ropa"
     },
     {
         id:3,
-        path:"/category/empanadas",
-        name:"Empanadas"
+        path:"/category/camping",
+        name:"camping"
     },
     {
         id:4,
-        path:"/category/frutas",
-        name:"Frutas"
+        path:"/category/maquinaria",
+        name:"maquinaria"
     },
-    {
-        id:5,
-        path:"/category/verduras",
-        name:"Verduras"
-    },
+  
 ];
 
 const NavBar = () =>{
