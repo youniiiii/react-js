@@ -2,7 +2,7 @@ import React from 'react';
 import ItemDetail from'../components/ItemDetail';
 import fetchData from '../utils/fetchData';
 import { useEffect , useState} from 'react';
-import dataBase from '../utils/api.js';
+import { db}  from '../utils/fireBase';
 import { useParams } from 'react-router-dom';
 
 const  ItemDetailContainer =()=> {
@@ -12,7 +12,7 @@ const  ItemDetailContainer =()=> {
   const[data,setData]= useState([]);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-if(id){fetchData(2000,dataBase.find((item)=> item.id ===parseInt(id)))
+if(id){fetchData(2000,db.find((item)=> item.id ===parseInt(id)))
 .then(result=>setData(result))
 .catch(error => console.error(error))
 }else{

@@ -4,7 +4,7 @@ import { createContext,useState } from 'react';
  
 export const CartContext = createContext();
 
-const cartContextProvider = ({children})=>{
+const CartContextProvider = ({children})=>{
 
     
     const[cartList,setCartList]= useState([]);
@@ -26,4 +26,4 @@ const cartContextProvider = ({children})=>{
 
     );
 }
-export default cartContextProvider;
+export default CartContextProvider;

@@ -1,32 +1,28 @@
 import React from 'react';
-import ItemList from'../components/ItemList';
-import fetchData from '../utils/fetchData';
-import { useEffect , useState} from 'react';
-import dataBase from '../utils/api.js';
+import ItemList from '../components/ItemList';
+import { collection, getDocs } from "firebase/firestore";
+import { useEffect, useState } from 'react';
+import {db} from '../utils/fireBase';
 import { useParams } from 'react-router-dom';
-const  ItemListContainer =()=> {
+const ItemListContainer = () => {
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const[data,setData]= useState([])
-const {id}=useParams();
+  const [data ,setData] = useState([]);
+  const { id } = useParams();
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  useEffect(() => {
-if(id){
-  fetchData(2000,dataBase.filter(item => item.categoryId === parseInt(id)))
-  .then(result=>setData(result))
-  .catch(error => console.error(error))
-}else{
-  fetchData(2000,dataBase)
-.then(result=>setData(result))
-.catch(error => console.error(error))
-}
-
+  useEffect( () => {
+    async function fetchData() {
+    const querySnapshot = await getDocs(collection(db, "users"));
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+    })}
+    
+    setData(fetchData());
   }, [id]);
 
   return (
     <>
-   <ItemList items={data}/>
+      <ItemList items={data} />
     </>
   );
 }

@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-const Cardts = ({ imagen, nombre, precio, codigo, id }) => {
+const Cardts = ({ img,title, precio, categoria, id }) => {
   return (
     <div className="container" >
       <div className="image">
-        <img src={imagen} alt="" width="300px" height="400px" />
+        <img src={img} alt="" width="300px" height="400px" />
       </div>
       <div className="info">
-        <h3>nombre:<br />{nombre}</h3>
+        <h3>nombre:<br />{title}</h3>
         <p>precio:{precio}</p>
-        <p>codigo:{codigo}</p>
+        <p>codigo:{categoria}</p>
        <Link to={`/item/${id}`}>
        
        <button className='btn' id={id}>detalles</button>
