@@ -1,0 +1,47 @@
+*{
+    --main-color:rgb(135, 135, 135);
+    font-family: sans 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:500;
+}
+
+.titulo {
+    color:rgb(8, 8, 8);
+    text-align: center;
+}
+
+.card {
+    display:flex;
+    display:inline-block;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin:2%;
+    width:18%;
+    padding:1%;
+    font-size:18px;
+    text-align: center;
+    border:solid rgb(228, 219, 219) 2px;
+    border-radius: 5px;
+}
+
+.card img{
+    width:200px;
+    height:200px;
+}
+
+.boton-detalle{
+    border-radius: 2%;
+    border: solid rgb(38, 0, 255);
+    border-radius: 5px;
+    padding:0.5%;
+    color:white;
+    background-color: rgb(0, 0, 0);
+    padding:0.5%;
+    margin:2%;
+    cursor:pointer;
+    width:50%;
+}
+
+.product-name{
+    color:rgb(0, 0, 0);
+}

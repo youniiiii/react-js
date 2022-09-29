@@ -1,30 +1,53 @@
-import React from 'react';
-import ItemList from '../components/ItemList';
-import { collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from 'react';
-import {db} from '../utils/fireBase';
-import { useParams } from 'react-router-dom';
-const ItemListContainer = () => {
+import React, {useState, useEffect} from "react";
+import ItemList from "./ItemList";
+import { BeatLoader } from "react-spinners";
+import { useParams } from "react-router-dom";
+import { db } from "../firebase/firebase"
+import { getDocs, collection, query, where } from "firebase/firestore"
+import "./ItemListContainer.css"
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [data ,setData] = useState([]);
-  const { id } = useParams();
 
-  useEffect( () => {
-    async function fetchData() {
-    const querySnapshot = await getDocs(collection(db, "users"));
-    querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data()}`);
-    })}
-    
-    setData(fetchData());
-  }, [id]);
+const ItemListContainer = ({greeting}) =>{
+    const [productList, setProductList] = useState ([]);
+    const [loading, setLoading] = useState(true);
+    const {categoryId} = useParams()
 
-  return (
-    <>
-      <ItemList items={data} />
-    </>
-  );
+    useEffect(()=>{
+
+        const productsCollection = collection (db, "productos");
+        if (categoryId) {
+            const q = query (productsCollection, where ("category", "==", categoryId));
+            getDocs(q)
+            console.log(q)
+            .then (result =>
+                setProductList(result.docs.map(product => ({ id: product.id, ...product.data() }))))
+            .catch ((error)=>{
+                console.log(error);
+            })
+            .finally(()=> {
+                setLoading(false);
+            })
+        } else {
+            getDocs(productsCollection)
+            .then (result =>
+                setProductList(result.docs.map(product => ({ id: product.id, ...product.data() }))))
+            .catch ((error)=>{
+                console.log(error);
+            })
+            .finally(()=> {
+                setLoading(false);
+            })
+        }
+    }, [categoryId])
+
+    return (
+        <div>
+            <h1 className="titulo">{greeting}</h1>
+            {loading ?
+            <BeatLoader className="spinner" color="rgb(236, 114, 114)" cssOverride={{display:"flex", justifyContent:"center", marginTop:"5%"}}/>
+            : <ItemList productList={productList}/>}
+        </div>
+    )
 }
 
 export default ItemListContainer;

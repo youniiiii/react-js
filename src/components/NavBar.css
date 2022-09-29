@@ -1,0 +1,122 @@
+*{
+    --main-color:rgb(220, 213, 87);
+}
+
+header {
+    box-shadow: 3px 3px 5px grey;
+    background-color: var(--main-color);
+    height:4rem;
+    display:flex;
+    justify-content: space-between;
+    color:white;
+    align-items: center;
+}
+
+.nav__list{
+    list-style: none;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.link {
+    margin-left:15%;
+}
+
+ul :hover{
+    color:black;;
+}
+
+.nombre{
+    font-size:30px;
+    margin:1%;
+    color:white;
+}
+
+a {
+    text-decoration: none;
+    color:white;
+}
+
+.cart{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    margin:2%;
+    cursor:pointer;
+}
+
+.carrito :hover{
+    color:black;
+}
+
+.cart-link{
+    color:rgb(0, 0, 0);
+}
+
+.cart-title{
+    text-align: center;
+}
+
+.cart-detail{
+    display:grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-auto-flow: column;
+    margin: 2% 20%;
+    border:solid rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 5px;
+}
+
+.cart-resume {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align:center;
+    margin: 0% 20%;
+    padding: 0 15%;
+    border:solid rgb(9, 0, 0);
+    border-radius: 5px;
+}
+
+.delete-button{
+    cursor:pointer;
+    color:var(--main-color);
+    display:grid;
+    grid-template-columns: 100%;
+    border-radius: 5px;
+}
+
+.cart-button{
+    background-color: var(--main-color);
+    color:white;
+    cursor:pointer;
+    height: 30px;
+    border: solid rgb(129, 128, 128) 2px;
+    border-radius: 5px;
+    margin-left:10%;
+    height: 35px;
+}
+
+.clear-button{
+    display:flex;
+    align-items: center;
+    background-color: var(--main-color);
+    color:white;
+    cursor:pointer;
+    height: 30px;
+    border: solid rgb(129, 128, 128) 2px;
+    border-radius: 5px;
+    margin-left:40%;
+    height: 35px;
+}
+
+.cart-buttons{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left:20%;
+    margin-right: 35%;
+    margin-top:1%;
+    border-radius: 5px;
+}

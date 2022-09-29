@@ -1,36 +1,45 @@
-import React from 'react';
-import ItemDetail from'../components/ItemDetail';
-import fetchData from '../utils/fetchData';
-import { useEffect , useState} from 'react';
-import { db}  from '../utils/fireBase';
-import { useParams } from 'react-router-dom';
+import React, {useState, useEffect} from 'react'
+import ItemDetail from './ItemDetail'
+import "./ItemDetailContainer.css"
+import {useParams} from 'react-router-dom'
+import {BeatLoader} from "react-spinners";
+import {db} from "../firebase/firebase.js";
+import { doc, getDoc} from "firebase/firestore";
 
-const  ItemDetailContainer =()=> {
-  const {id}=useParams();
+const ItemDetailContainer = () => {
+    const [product, setProduct] = useState({});
+    const [loading, setLoading] = useState(true);
+    const {id} = useParams();
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const[data,setData]= useState([]);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  useEffect(() => {
-if(id){fetchData(2000,db.find((item)=> item.id ===parseInt(id)))
-.then(result=>setData(result))
-.catch(error => console.error(error))
-}else{
-alert('no hay datos');
-}
-  }, [id]);
+    useEffect(()=>{
 
-  return (
-    <>
-    {(data.nombre)
-    ?<ItemDetail item={data}/>
-    :<div className="loader">
-    <div className="scanner">
-    <h1>Loading...</h1>
-    </div>
-    </div>
-    }</>
-  );
+        const refDoc = doc(db, "productos", id);
+        getDoc(refDoc)
+        console.log(refDoc)
+        .then (result =>{
+            setProduct( {id:result.id, ...result.data()});
+        })
+        .catch((error) =>{
+            console.log(error);
+        })
+        .finally(() =>{
+            setLoading(false);
+        });
+    },[id])
+
+
+    console.log(product);
+    return (
+        <div>
+            {loading ? (
+                <BeatLoader className="spinner" color="rgb(236, 114, 114)" cssOverride={{display:"flex", justifyContent:"center", marginTop:"5%"}}/>
+            ) : (
+                <>
+                    <ItemDetail product={product}/>
+                </>
+            )}
+        </div>
+    )
 }
 
 export default ItemDetailContainer;
