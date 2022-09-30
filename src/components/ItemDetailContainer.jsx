@@ -13,12 +13,13 @@ const ItemDetailContainer = () => {
 
     useEffect(()=>{
 
-        const refDoc = doc(db, "productos", id);
+        const refDoc = doc(db, "db", id);
         getDoc(refDoc)
-        console.log(refDoc)
         .then (result =>{
-            setProduct( {id:result.id, ...result.data()});
+           console.log({id:result.id, ...result.data()});
+            setProduct({id:result.id, ...result.data()});
         })
+        
         .catch((error) =>{
             console.log(error);
         })
@@ -28,7 +29,7 @@ const ItemDetailContainer = () => {
     },[id])
 
 
-    console.log(product);
+ 
     return (
         <div>
             {loading ? (

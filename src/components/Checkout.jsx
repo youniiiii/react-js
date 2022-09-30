@@ -48,7 +48,7 @@ const Checkout = () => {
         clear()
     )
         cart.forEach((product) => {
-        const updateCollection = doc(db, "productos", product.id);
+        const updateCollection = doc(db, "db", product.id);
         updateDoc(updateCollection, { stock: product.stock - product.quantity });
     });
     }

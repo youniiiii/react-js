@@ -43,7 +43,7 @@ const CartCustomProvider = ({ children }) => {
     }
 
     const totalPrice = () => {
-        return cart.reduce((prev, act) => prev + act.quantity * act.price, 0);
+        return cart.reduce((prev, act) => prev + act.quantity * act.precio, 0);
     }
 
     const totalProducts = () => {

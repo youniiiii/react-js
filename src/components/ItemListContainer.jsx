@@ -14,11 +14,11 @@ const ItemListContainer = ({greeting}) =>{
 
     useEffect(()=>{
 
-        const productsCollection = collection (db, "productos");
+        const productsCollection = collection (db, "db");
         if (categoryId) {
             const q = query (productsCollection, where ("category", "==", categoryId));
             getDocs(q)
-            console.log(q)
+    
             .then (result =>
                 setProductList(result.docs.map(product => ({ id: product.id, ...product.data() }))))
             .catch ((error)=>{
