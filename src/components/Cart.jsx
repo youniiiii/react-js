@@ -20,8 +20,8 @@ const Cart = () => {
               <div className="cart-detail" key={product.id}>
               <p> {product.quantity} </p>
               <p> {product.title} </p>
-              <p> ${product.precio}</p>
-              <p> Subtotal: ${product.quantity * product.precio}</p>
+              <p> ${product.price}</p>
+              <p> Subtotal: ${product.quantity * product.price}</p>
               <p className="delete-button" onClick={() =>deleteProduct(product.id)}><RemoveCircleIcon/></p>
               </div>)}
           </div>

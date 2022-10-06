@@ -22,7 +22,7 @@ const ItemDetail = ({product}) => {
                     <section>
                         <h1 className="nombre-producto">{product.title}</h1>
                         <h4>{product.description}</h4>
-                        <h2><b>${product.precio}</b></h2>
+                        <h2><b>${product.price}</b></h2>
                         <h3>Stock: {product.stock}</h3>
                     </section>
                     {
